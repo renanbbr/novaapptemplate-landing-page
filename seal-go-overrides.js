@@ -327,8 +327,8 @@
         "Pode, a qualquer momento, com uma taxa administrativa e ajuste na parcela, conforme disponibilidade.",
       ],
       [
-        "E se quebrar?",
-        "Desgaste natural é por nossa conta. Dano por uso você paga só o custo da peça, sem mão de obra.",
+        "Vende para negativado?",
+        "Sim. Temos outro método de análise e essa questão não é problema.",
       ],
       [
         "Como eu pago?",
