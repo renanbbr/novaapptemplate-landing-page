@@ -364,6 +364,208 @@
     section.dataset.sealFaq = "true";
   };
 
+  const howSteps = [
+    {
+      kicker: "Passo 1",
+      title: "Entre na pré-venda",
+      text: "Preencha o formulário. Leva 2 minutos, sem compromisso.",
+      screen: `
+        <div class="seal-scr-bar"><span>9:41</span><span class="seal-scr-brand">SealGo</span></div>
+        <div class="seal-scr-body">
+          <p class="seal-scr-ey">Pré-venda</p>
+          <h4 class="seal-scr-title">Garanta seu iPhone</h4>
+          <div class="seal-field"><span>Nome</span><strong>Maria Silva</strong></div>
+          <div class="seal-field"><span>WhatsApp</span><strong>(11) 99999-0000</strong></div>
+          <div class="seal-field seal-field--active"><span>Modelo desejado</span><strong>iPhone 15 · 128GB</strong></div>
+          <button class="seal-scr-btn">Quero garantir</button>
+          <p class="seal-scr-note">Leva 2 minutos · Sem consulta que te bloqueia</p>
+        </div>`,
+    },
+    {
+      kicker: "Passo 2",
+      title: "Análise de crédito",
+      text: "Aqui a gente faz a análise do seu cadastro — rápida e sem complicação.",
+      screen: `
+        <div class="seal-scr-bar"><span>9:41</span><span class="seal-scr-brand">SealGo</span></div>
+        <div class="seal-scr-body">
+          <p class="seal-scr-ey">Análise de crédito</p>
+          <h4 class="seal-scr-title">Analisando seu cadastro</h4>
+          <div class="seal-ring"><span class="seal-ring-num">100%</span></div>
+          <ul class="seal-checks">
+            <li class="ok"><i>✓</i> Cadastro recebido</li>
+            <li class="ok"><i>✓</i> Dados validados</li>
+            <li class="ok"><i>✓</i> Sem consulta ao SPC/Serasa</li>
+          </ul>
+          <div class="seal-result"><span>Resultado</span><strong>Pré-aprovado</strong></div>
+        </div>`,
+    },
+    {
+      kicker: "Passo 3",
+      title: "Fale com um especialista",
+      text: "A gente te chama no WhatsApp e monta sua proposta: modelo, prazo e entrada.",
+      screen: `
+        <div class="seal-wa-top">
+          <span class="seal-wa-avatar">S</span>
+          <div class="seal-wa-id"><strong>Seal Go</strong><span>online agora</span></div>
+        </div>
+        <div class="seal-wa-body">
+          <div class="seal-wa-msg in">Oi, Maria! Vi seu interesse no iPhone 15 🙌</div>
+          <div class="seal-wa-msg in">Montei sua proposta 👇</div>
+          <div class="seal-wa-card">
+            <p class="seal-wa-card-title">iPhone 15 · 128GB</p>
+            <ul>
+              <li><span>Prazo</span><strong>18 meses</strong></li>
+              <li><span>Entrada</span><strong>Facilitada</strong></li>
+              <li><span>Mensalidade</span><strong>R$279/mês</strong></li>
+            </ul>
+          </div>
+          <div class="seal-wa-msg out">Perfeito! Quero seguir ✅</div>
+        </div>
+        <div class="seal-wa-input"><span>Mensagem</span><i>➤</i></div>`,
+    },
+    {
+      kicker: "Passo 4",
+      title: "Contrato 100% digital",
+      text: "Gostou da proposta? Você assina online, com tudo por escrito e sem burocracia.",
+      screen: `
+        <div class="seal-scr-bar"><span>9:41</span><span class="seal-scr-brand">SealGo</span></div>
+        <div class="seal-scr-body">
+          <div class="seal-scr-eyrow"><p class="seal-scr-ey">Contrato</p><span class="seal-tag">100% digital</span></div>
+          <h4 class="seal-scr-title">Tudo por escrito</h4>
+          <div class="seal-doc">
+            <span class="seal-doc-line w80"></span>
+            <span class="seal-doc-line w55"></span>
+            <div class="seal-doc-rows">
+              <div><span>Mensalidade</span><strong>R$279/mês</strong></div>
+              <div><span>Prazo</span><strong>18 meses</strong></div>
+              <div><span>No fim, é seu por</span><strong>R$2</strong></div>
+            </div>
+            <div class="seal-sign"><span>Assinatura</span><b>Maria Silva</b></div>
+          </div>
+          <button class="seal-scr-btn">Assinar contrato</button>
+        </div>`,
+    },
+    {
+      kicker: "Passo 5",
+      title: "O seu iPhone na mão",
+      text: "É só agendar a entrega ou o envio do seu aparelho. Pronto pra usar.",
+      screen: `
+        <div class="seal-scr-bar"><span>9:41</span><span class="seal-scr-brand">SealGo</span></div>
+        <div class="seal-scr-body">
+          <p class="seal-scr-ey">Entrega</p>
+          <h4 class="seal-scr-title">Seu iPhone está a caminho</h4>
+          <div class="seal-track">
+            <img src="./assets/iphone-15.png" alt="iPhone 15" loading="lazy" decoding="async">
+            <ul class="seal-track-steps">
+              <li class="done"><i></i> Contrato assinado</li>
+              <li class="done"><i></i> Aparelho separado</li>
+              <li class="active"><i></i> Saiu para entrega</li>
+            </ul>
+          </div>
+          <div class="seal-deliver">
+            <div class="seal-deliver-date"><span>Entrega agendada</span><strong>Ter, 24 jun</strong></div>
+            <div class="seal-deliver-tabs"><span class="on">Em casa</span><span>Retirar</span></div>
+          </div>
+          <button class="seal-scr-btn">Agendar entrega</button>
+        </div>`,
+    },
+  ];
+
+  const buildHowItWorks = () => {
+    const section = document.querySelector('section[data-framer-name="section-how-it-works"]');
+    if (!section || section.dataset.sealHow === "true") return;
+
+    const shell = document.createElement("div");
+    shell.className = "seal-how-shell";
+
+    const header = document.createElement("header");
+    header.className = "seal-how-head";
+    const eyebrow = document.createElement("p");
+    eyebrow.className = "seal-how-eyebrow";
+    eyebrow.textContent = "Como funciona";
+    const heading = document.createElement("h2");
+    heading.className = "seal-how-heading";
+    heading.textContent = "Do seu “quero” ao iPhone na mão";
+    header.append(eyebrow, heading);
+
+    const grid = document.createElement("div");
+    grid.className = "seal-how-grid";
+
+    const track = document.createElement("div");
+    track.className = "seal-how-track";
+
+    const stage = document.createElement("div");
+    stage.className = "seal-how-stage";
+    const phone = document.createElement("div");
+    phone.className = "seal-how-phone";
+    const island = document.createElement("span");
+    island.className = "seal-how-island";
+    const screensWrap = document.createElement("div");
+    screensWrap.className = "seal-how-screens";
+    phone.append(island, screensWrap);
+    stage.append(phone);
+
+    howSteps.forEach((step, index) => {
+      const article = document.createElement("article");
+      article.className = "seal-how-step";
+      article.dataset.index = String(index);
+      const kicker = document.createElement("p");
+      kicker.className = "seal-how-kicker";
+      kicker.textContent = step.kicker;
+      const title = document.createElement("h3");
+      title.className = "seal-how-step-title";
+      title.textContent = step.title;
+      const text = document.createElement("p");
+      text.className = "seal-how-step-text";
+      text.textContent = step.text;
+
+      const inlineStage = document.createElement("div");
+      inlineStage.className = "seal-how-step-stage";
+      const inlinePhone = document.createElement("div");
+      inlinePhone.className = "seal-how-phone seal-how-phone--inline";
+      inlinePhone.innerHTML = `<span class="seal-how-island"></span><div class="seal-how-screens"><div class="seal-how-screen seal-how-screen--${index} is-active">${step.screen}</div></div>`;
+      inlineStage.append(inlinePhone);
+
+      article.append(kicker, title, text, inlineStage);
+      track.append(article);
+
+      const screen = document.createElement("div");
+      screen.className = `seal-how-screen seal-how-screen--${index}`;
+      screen.dataset.index = String(index);
+      screen.innerHTML = step.screen;
+      screensWrap.append(screen);
+    });
+
+    grid.append(track, stage);
+    shell.append(header, grid);
+    section.replaceChildren(shell);
+    section.classList.add("seal-how-section");
+    section.id = "como-funciona";
+    section.dataset.sealHow = "true";
+
+    document.querySelectorAll('a[href="#por-que"]').forEach((anchor) => {
+      anchor.setAttribute("href", "#como-funciona");
+    });
+
+    const steps = [...track.querySelectorAll(".seal-how-step")];
+    const screens = [...screensWrap.querySelectorAll(".seal-how-screen")];
+    const setActive = (index) => {
+      steps.forEach((element, i) => element.classList.toggle("is-active", i === index));
+      screens.forEach((element, i) => element.classList.toggle("is-active", i === index));
+    };
+    setActive(0);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(Number(entry.target.dataset.index));
+        });
+      },
+      { rootMargin: "-48% 0px -48% 0px", threshold: 0 },
+    );
+    steps.forEach((element) => observer.observe(element));
+  };
+
   const buildIntroBalloons = () => {
     const section = document.querySelector('section[data-framer-name="section-intro"]');
     if (!section) return;
@@ -460,6 +662,7 @@
     buildMechanismCarousel();
     buildPricing();
     buildFaq();
+    buildHowItWorks();
     buildIntroBalloons();
     const elements = document.querySelectorAll("h1, h2, h3, h4, p, span, a, button");
 
