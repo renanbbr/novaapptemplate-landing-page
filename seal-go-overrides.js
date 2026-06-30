@@ -630,6 +630,15 @@
         <p class="seal-final-sub">Leva 2 minutos, sem consulta que te bloqueia.</p>
         <a class="seal-final-btn" href="pre-venda.html">Quero entrar na pré-venda <span aria-hidden="true">→</span></a>
       </div>`;
+
+    const cover = document.createElement("img");
+    cover.className = "seal-final-cover";
+    cover.alt = "";
+    cover.setAttribute("aria-hidden", "true");
+    cover.addEventListener("error", () => cover.remove());
+    cover.src = "./assets/cta-final.jpg";
+    finalCta.querySelector(".seal-final-art").after(cover);
+
     main.append(finalCta);
 
     const footer = document.createElement("footer");
