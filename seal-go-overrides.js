@@ -30,7 +30,21 @@
     ],
     ["Conserto sem susto", "iPhone já com seguro"],
     ["Desgaste natural é por nossa conta. Dano por uso? Só o custo da peça.", "Proteção e segurança."],
+    [
+      "Garanta seu iPhone na pré-venda. Leva 1 minuto, sem consulta que te bloqueia.",
+      "Garanta seu iPhone na pré-venda. Leva 2 minutos, sem consulta que te bloqueia.",
+    ],
   ]);
+
+  const PREVENDA_URL = "pre-venda.html";
+
+  const linkPreVenda = () => {
+    for (const anchor of document.querySelectorAll('a[href="#pre-venda"]')) {
+      anchor.setAttribute("href", PREVENDA_URL);
+      anchor.setAttribute("target", "_blank");
+      anchor.setAttribute("rel", "noopener");
+    }
+  };
 
   const iphones = [
     ["iPhone 17e", "https://cdsassets.apple.com/live/7WUAS350/images/iphone/iphone-17e/iphone-17e-colors.png"],
@@ -271,7 +285,7 @@
 
     const description = document.createElement("p");
     description.className = "seal-pricing-description";
-    description.textContent = "Sua mensalidade depende do modelo, do prazo (12, 18 ou 24 meses) e da entrada. Sem tabela de juros, sem pegadinha — a partir de R$119/mês.";
+    description.textContent = "Sua mensalidade depende do modelo, do prazo (12, 18 ou 24 meses) e da entrada. — parcelas a partir de R$119/mês";
     header.append(eyebrow, heading, description);
 
     const grid = document.createElement("div");
@@ -503,7 +517,7 @@
     eyebrow.textContent = "Como funciona";
     const heading = document.createElement("h2");
     heading.className = "seal-how-heading";
-    heading.textContent = "Do seu “quero” ao iPhone na mão";
+    heading.textContent = "Do seu “sim” ao iPhone na mão";
     header.append(eyebrow, heading);
 
     const grid = document.createElement("div");
@@ -685,6 +699,7 @@
     buildFaq();
     buildHowItWorks();
     buildIntroBalloons();
+    linkPreVenda();
     const elements = document.querySelectorAll("h1, h2, h3, h4, p, span, a, button");
 
     for (const element of elements) {
