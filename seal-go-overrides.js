@@ -56,8 +56,8 @@
     ["iPhone 13 Pro", "https://cdsassets.apple.com/live/7WUAS350/images/iphone/2022-spring-iphone13-pro-colors.png"],
     ["iPhone 13", "https://cdsassets.apple.com/live/7WUAS350/images/iphone/2022-spring-iphone13-colors.png"],
     ["iPhone 13 mini", "https://cdsassets.apple.com/live/7WUAS350/images/iphone/2022-iphone13-mini-colors.png"],
-    ["iPhone 12 Pro Max", "https://cdsassets.apple.com/live/7WUAS350/images/iphone/iphone-12-pro-max/iphone12-pro-max-colors.jpg"],
-    ["iPhone 12 Pro", "https://cdsassets.apple.com/live/7WUAS350/images/iphone/iphone-12-pro/iphone12-pro-colors.jpg"],
+    ["iPhone 12 Pro Max", "./assets/iphone-12-pro.webp"],
+    ["iPhone 12 Pro", "./assets/iphone-12-pro.webp"],
     ["iPhone 12", "https://cdsassets.apple.com/live/7WUAS350/images/iphone/2021-iphone12-colors.png"],
   ];
 
@@ -70,18 +70,18 @@
   ];
 
   const pricingModels = [
-    { condition: "Seminovo", name: "iPhone 11 128GB", price: "119", image: "https://cdsassets.apple.com/live/7WUAS350/images/iphone/identify-iphone-11-colors.jpg" },
-    { condition: "Seminovo", name: "iPhone 12 Pro 256GB", price: "199", image: "https://cdsassets.apple.com/live/7WUAS350/images/iphone/iphone-12-pro/iphone12-pro-colors.jpg", popular: true },
-    { condition: "Seminovo", name: "iPhone 15 128GB", price: "279", image: "https://cdsassets.apple.com/live/7WUAS350/images/iphone/fall-2023-iphone-colors-iphone-15.png" },
-    { condition: "Novo · Lacrado", name: "iPhone 17 256GB", price: "469", image: "https://cdsassets.apple.com/live/7WUAS350/images/iphone/iphone-17-colors.png" },
-    { condition: "Novo · Lacrado", name: "iPhone 17 Pro Max 256GB", price: "699", image: "./assets/iphone-17-pro-max.png" },
+    { condition: "Seminovo", name: "iPhone 11 128GB", price: "119", image: "./assets/iphone-11.png", imageScale: 0.92 },
+    { condition: "Seminovo", name: "iPhone 12 Pro 256GB", price: "199", image: "./assets/iphone-12-pro.webp", imageScale: 0.86, popular: true },
+    { condition: "Seminovo", name: "iPhone 15 128GB", price: "279", image: "./assets/iphone-15.png", imageScale: 1.42 },
+    { condition: "Novo · Lacrado", name: "iPhone 17 256GB", price: "469", image: "./assets/iphone-17.png", imageScale: 0.86 },
+    { condition: "Novo · Lacrado", name: "iPhone 17 Pro Max 256GB", price: "699", image: "./assets/iphone-17-pro-max-orange.png", imageScale: 1.18 },
   ];
 
   const modelBenefits = [
-    "Aparelho configurado",
-    "Capa inclusa",
+    "Capa, película e carregador",
+    "Seguro contra furto e roubo",
     "Aparelho reserva",
-    "Dono por R$2 no fim",
+    "Dono por apenas R$2 no fim",
   ];
 
   const modelSet = (models, hidden = false) => {
@@ -126,7 +126,7 @@
     const ticker = partnerCard.querySelector('[data-framer-name="ticker wrap"]');
     if (!ticker) return;
 
-    title.textContent = "26 modelos de iPhone";
+    title.textContent = "São mais de 26 modelos para você escolher";
     partnerCard.classList.add("seal-iphone-partners");
     ticker.classList.add("seal-iphone-ticker-wrap");
     const carousel = document.createElement("div");
@@ -138,6 +138,10 @@
       modelRow([...iphones].reverse(), true),
     );
     ticker.replaceChildren(carousel);
+    for (const element of partnerCard.querySelectorAll("p, a")) {
+      if (element.textContent.trim() !== "Contrato claro, com tudo por escrito") continue;
+      (element.closest("p") || element).classList.add("seal-carousel-contract-copy");
+    }
     partnerCard.dataset.sealCarousel = "true";
   };
 
@@ -181,7 +185,7 @@
     section.dataset.sealMechanisms = "true";
   };
 
-  const modelCard = ({ condition, name, price, image, popular = false }) => {
+  const modelCard = ({ condition, name, price, image, imageScale = 1.18, popular = false }) => {
     const card = document.createElement("article");
     card.className = `seal-model-card${popular ? " seal-model-card--popular" : ""}`;
 
@@ -216,7 +220,10 @@
     productImage.alt = name;
     productImage.loading = "lazy";
     productImage.decoding = "async";
-    if (image.startsWith("./assets/")) productImage.classList.add("seal-model-image--provided");
+    if (image.startsWith("./assets/")) {
+      productImage.classList.add("seal-model-image--provided");
+      productImage.style.setProperty("--seal-product-scale", imageScale);
+    }
     imageWrap.append(productImage);
 
     const priceLabel = document.createElement("p");
@@ -369,12 +376,16 @@
     for (const phone of section.querySelectorAll('[data-framer-name="phone-screens"]')) {
       if (phone.dataset.sealBalloons === "true") continue;
 
+      const screenBrand = document.createElement("div");
+      screenBrand.className = "seal-intro-screen-brand";
+      screenBrand.textContent = "SealGo";
+
       const balloons = document.createElement("div");
       balloons.className = "seal-intro-balloons";
       balloons.innerHTML = `
         <article class="seal-intro-balloon seal-intro-benefit seal-intro-benefit--one">
-          <h3>Aprovação sem o Serasa travar</h3>
-          <p>Sua nota no bureau não decide por você. O que conta é o acordo daqui pra frente.</p>
+          <h3>Aprovamos negativados</h3>
+          <p>Sua nota no Serasa não interfere para nós. O que é importa é o nosso acordo.</p>
         </article>
         <article class="seal-intro-balloon seal-intro-benefit seal-intro-benefit--two">
           <h3>Parcela fixa, sem pegadinha</h3>
@@ -382,14 +393,14 @@
         </article>
         <article class="seal-intro-balloon seal-intro-benefit seal-intro-benefit--three">
           <h3>Entrada que cabe no seu momento</h3>
-          <p>Saia com o iPhone na hora, com uma entrada facilitada pro seu perfil.</p>
+          <p>Garanta o seu iPhone, com uma entrada facilitada e que caiba no teu seu orçamento</p>
         </article>
         <article class="seal-intro-balloon seal-intro-benefit seal-intro-benefit--four">
           <h3>Use agora, vire dono depois</h3>
           <p>No fim do contrato você compra o aparelho por R$2 e ele é seu. Ou renova, ou troca.</p>
         </article>
       `;
-      phone.append(balloons);
+      phone.append(screenBrand, balloons);
       phone.classList.add("seal-intro-phone");
       phone.dataset.sealBalloons = "true";
     }
@@ -402,6 +413,13 @@
     for (const paragraph of hero.querySelectorAll("p")) {
       const text = paragraph.textContent.trim();
       if (!text.startsWith("Locação de iPhone,")) continue;
+      const price = document.createElement("strong");
+      price.textContent = "R$119/mês";
+      paragraph.replaceChildren(
+        "Locação de iPhone, pagamento no boleto e entrada facilitada — a partir de ",
+        price,
+        ".",
+      );
       paragraph.closest(".ssr-variant")?.classList.add("seal-hero-description-variant");
     }
 

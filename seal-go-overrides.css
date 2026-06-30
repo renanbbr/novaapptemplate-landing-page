@@ -82,6 +82,10 @@
   gap: 22px !important;
 }
 
+.seal-carousel-contract-copy {
+  display: none !important;
+}
+
 section[data-framer-name="hero"] .seal-approved-badge {
   display: inline-flex;
   align-items: center;
@@ -360,7 +364,7 @@ section[data-framer-name="section-benefits"] {
 }
 
 .seal-model-image--provided {
-  transform: scale(1.45);
+  transform: scale(var(--seal-product-scale, 1.18));
 }
 
 .seal-model-price {
@@ -568,6 +572,26 @@ section[data-framer-name="section-benefits"] {
   isolation: isolate;
 }
 
+.seal-intro-phone [data-framer-name="logo"] {
+  display: none !important;
+}
+
+.seal-intro-screen-brand {
+  position: absolute;
+  z-index: 6;
+  top: 50%;
+  left: 50%;
+  color: var(--token-0d764deb-6f85-48af-b705-95c8050e4693, #3042e6);
+  font-family: "General Sans", "General Sans Placeholder", sans-serif;
+  font-size: clamp(36px, 4.4vw, 54px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
 .seal-intro-heading {
   max-width: 760px;
   margin: 0 auto;
@@ -631,7 +655,7 @@ section[data-framer-name="section-benefits"] {
 }
 
 .seal-intro-benefit--two {
-  bottom: 7%;
+  bottom: 23%;
   left: 2%;
 }
 
@@ -642,7 +666,7 @@ section[data-framer-name="section-benefits"] {
 
 .seal-intro-benefit--four {
   right: 3%;
-  bottom: 3%;
+  bottom: 23%;
 }
 
 .seal-intro-models {
@@ -814,6 +838,10 @@ section[data-framer-name="section-benefits"] {
 }
 
 @media (max-width: 809px) {
+  section[data-framer-name="section-intro"] {
+    padding-bottom: 72px !important;
+  }
+
   section[data-framer-name="hero"] .seal-hero-description-variant {
     width: min(560px, calc(100% - 40px));
     margin: 20px auto 0;
@@ -846,7 +874,7 @@ section[data-framer-name="section-benefits"] {
   }
 
   .seal-intro-benefit--two {
-    bottom: 6%;
+    bottom: 11%;
     left: 0;
   }
 
@@ -856,7 +884,7 @@ section[data-framer-name="section-benefits"] {
 
   .seal-intro-benefit--four {
     right: 0;
-    bottom: 2%;
+    bottom: 11%;
   }
 
   .seal-intro-models {
