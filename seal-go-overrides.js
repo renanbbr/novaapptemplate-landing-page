@@ -601,6 +601,69 @@
     steps.forEach((element) => observer.observe(element));
   };
 
+  const buildFooterCta = () => {
+    const main = document.querySelector("#main") || document.body;
+    if (!main || document.querySelector(".seal-footer")) return;
+
+    for (const el of document.querySelectorAll(
+      'section[data-framer-name="Desktop"], section[data-framer-name="Tablet"], section[data-framer-name="Phone"], footer',
+    )) {
+      el.style.display = "none";
+      el.setAttribute("aria-hidden", "true");
+    }
+
+    const footer = document.createElement("footer");
+    footer.className = "seal-footer";
+    footer.innerHTML = `
+      <div class="seal-footer-inner">
+        <div class="seal-footer-head">
+          <span class="seal-footer-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="40" height="40" fill="none">
+              <circle cx="20" cy="20" r="18.5" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M12 24c4-10 12-10 16 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+              <circle cx="20" cy="16" r="2.4" fill="currentColor"/>
+            </svg>
+          </span>
+          <p class="seal-footer-tagline">Pré-venda aberta — Locação de iPhone</p>
+        </div>
+
+        <div class="seal-footer-cta">
+          <h2>Garanta seu iPhone<br>na pré-venda.</h2>
+          <p>Leva 2 minutos, sem consulta que te bloqueia.</p>
+        </div>
+
+        <div class="seal-footer-cols">
+          <nav class="seal-footer-col">
+            <h3>Menu</h3>
+            <a href="#como-funciona">Como funciona</a>
+            <a href="#modelos">Modelos</a>
+            <a href="#duvidas">Dúvidas</a>
+          </nav>
+          <nav class="seal-footer-col">
+            <h3>Sociais</h3>
+            <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://tiktok.com/" target="_blank" rel="noopener">TikTok</a>
+            <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+          </nav>
+          <div class="seal-footer-col seal-footer-col--action">
+            <h3>Pré-venda</h3>
+            <a class="seal-footer-pill" href="pre-venda.html" target="_blank" rel="noopener">Quero entrar na pré-venda</a>
+          </div>
+        </div>
+
+        <div class="seal-footer-wordmark" aria-hidden="true">SEAL GO</div>
+
+        <div class="seal-footer-base">
+          <span>© 2026 Seal Store</span>
+          <span class="seal-footer-legal">
+            <a href="#">Política de privacidade</a>
+            <a href="#">Termos de uso</a>
+          </span>
+        </div>
+      </div>`;
+    main.append(footer);
+  };
+
   const buildIntroBalloons = () => {
     const section = document.querySelector('section[data-framer-name="section-intro"]');
     if (!section) return;
@@ -699,6 +762,7 @@
     buildFaq();
     buildHowItWorks();
     buildIntroBalloons();
+    buildFooterCta();
     linkPreVenda();
     const elements = document.querySelectorAll("h1, h2, h3, h4, p, span, a, button");
 
