@@ -1284,23 +1284,26 @@ section[data-framer-name="section-benefits"] {
 .seal-how-phone {
   position: relative;
   z-index: 1;
-  width: min(326px, 74%);
-  aspect-ratio: 411 / 845;
-  padding: 12px;
-  border-radius: 54px;
-  background: #0b0b0d;
-  box-shadow: 0 34px 80px rgba(0, 0, 0, 0.24), inset 0 0 0 2px rgba(255, 255, 255, 0.06);
+  width: min(330px, 76%);
+  aspect-ratio: 330 / 715;
+  border-radius: 34px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.06),
+    0 1px 1px rgba(0, 0, 0, 0.04),
+    0 28px 64px rgba(0, 0, 0, 0.15);
 }
 
 .seal-how-island {
   position: absolute;
   z-index: 7;
-  top: 24px;
+  top: 13px;
   left: 50%;
-  width: 88px;
-  height: 25px;
+  width: 78px;
+  height: 21px;
   border-radius: 999px;
-  background: #000;
+  background: #1c1c1e;
   transform: translateX(-50%);
 }
 
@@ -1309,7 +1312,7 @@ section[data-framer-name="section-benefits"] {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  border-radius: 44px;
+  border-radius: 34px;
   background: #fff;
 }
 
@@ -1545,7 +1548,7 @@ section[data-framer-name="section-benefits"] {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 46px 18px 14px;
+  padding: 40px 18px 14px;
   background: #1b8a5a;
   color: #fff;
 }
