@@ -1284,35 +1284,31 @@ section[data-framer-name="section-benefits"] {
 .seal-how-phone {
   position: relative;
   z-index: 1;
-  width: min(330px, 76%);
-  aspect-ratio: 330 / 715;
-  border-radius: 34px;
-  background: #fff;
-  overflow: hidden;
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.06),
-    0 1px 1px rgba(0, 0, 0, 0.04),
-    0 28px 64px rgba(0, 0, 0, 0.15);
+  width: min(338px, 78%);
+  aspect-ratio: 358 / 732;
+  filter: drop-shadow(0 26px 56px rgba(0, 0, 0, 0.18));
 }
 
-.seal-how-island {
+.seal-how-bevel {
   position: absolute;
-  z-index: 7;
-  top: 13px;
-  left: 50%;
-  width: 78px;
-  height: 21px;
-  border-radius: 999px;
-  background: #1c1c1e;
-  transform: translateX(-50%);
+  z-index: 5;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .seal-how-screens {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 1%;
+  bottom: 1%;
+  left: 3.6%;
+  right: 3.6%;
   overflow: hidden;
-  border-radius: 34px;
+  border-radius: 28px;
   background: #fff;
 }
 
@@ -1338,7 +1334,7 @@ section[data-framer-name="section-benefits"] {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 22px 4px;
+  padding: 30px 24px 6px;
   color: rgba(0, 0, 0, 0.5);
   font-family: "DM Mono", monospace;
   font-size: 12px;
@@ -1356,7 +1352,7 @@ section[data-framer-name="section-benefits"] {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 10px 22px 22px;
+  padding: 16px 22px 22px;
   overflow: hidden;
 }
 
@@ -1548,7 +1544,7 @@ section[data-framer-name="section-benefits"] {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 40px 18px 14px;
+  padding: 50px 18px 14px;
   background: #1b8a5a;
   color: #fff;
 }

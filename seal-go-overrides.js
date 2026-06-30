@@ -380,6 +380,8 @@
     section.dataset.sealFaq = "true";
   };
 
+  const HOW_BEVEL_SRC = "https://framerusercontent.com/images/H6ikNqzkIq1SwwLemc1wA6DPYQE.png";
+
   const howSteps = [
     {
       kicker: "Passo 1",
@@ -514,11 +516,14 @@
     stage.className = "seal-how-stage";
     const phone = document.createElement("div");
     phone.className = "seal-how-phone";
-    const island = document.createElement("span");
-    island.className = "seal-how-island";
     const screensWrap = document.createElement("div");
     screensWrap.className = "seal-how-screens";
-    phone.append(island, screensWrap);
+    const bevel = document.createElement("img");
+    bevel.className = "seal-how-bevel";
+    bevel.src = HOW_BEVEL_SRC;
+    bevel.alt = "";
+    bevel.setAttribute("aria-hidden", "true");
+    phone.append(screensWrap, bevel);
     stage.append(phone);
 
     howSteps.forEach((step, index) => {
@@ -539,7 +544,7 @@
       inlineStage.className = "seal-how-step-stage";
       const inlinePhone = document.createElement("div");
       inlinePhone.className = "seal-how-phone seal-how-phone--inline";
-      inlinePhone.innerHTML = `<span class="seal-how-island"></span><div class="seal-how-screens"><div class="seal-how-screen seal-how-screen--${index} is-active">${step.screen}</div></div>`;
+      inlinePhone.innerHTML = `<div class="seal-how-screens"><div class="seal-how-screen seal-how-screen--${index} is-active">${step.screen}</div></div><img class="seal-how-bevel" src="${HOW_BEVEL_SRC}" alt="" aria-hidden="true">`;
       inlineStage.append(inlinePhone);
 
       article.append(kicker, title, text, inlineStage);
