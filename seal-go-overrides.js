@@ -39,10 +39,10 @@
   const PREVENDA_URL = "pre-venda.html";
 
   const linkPreVenda = () => {
-    for (const anchor of document.querySelectorAll('a[href="#pre-venda"]')) {
+    for (const anchor of document.querySelectorAll('a[href="#pre-venda"], a[href="pre-venda.html"]')) {
       anchor.setAttribute("href", PREVENDA_URL);
-      anchor.setAttribute("target", "_blank");
-      anchor.setAttribute("rel", "noopener");
+      anchor.removeAttribute("target");
+      anchor.removeAttribute("rel");
     }
   };
 
@@ -612,6 +612,26 @@
       el.setAttribute("aria-hidden", "true");
     }
 
+    const finalCta = document.createElement("section");
+    finalCta.className = "seal-final-cta";
+    finalCta.id = "pre-venda-cta";
+    finalCta.innerHTML = `
+      <div class="seal-final-art" aria-hidden="true">
+        <img class="seal-final-phone seal-final-phone--1" src="./assets/iphone-17-pro-max.png" alt="" decoding="async">
+        <img class="seal-final-phone seal-final-phone--2" src="./assets/iphone-12-pro.webp" alt="" decoding="async">
+        <img class="seal-final-phone seal-final-phone--3" src="./assets/iphone-17-pro-max-orange.png" alt="" decoding="async">
+        <img class="seal-final-phone seal-final-phone--4" src="./assets/iphone-11.png" alt="" decoding="async">
+        <img class="seal-final-phone seal-final-phone--5" src="./assets/iphone-15.png" alt="" decoding="async">
+        <img class="seal-final-phone seal-final-phone--6" src="./assets/iphone-17.png" alt="" decoding="async">
+      </div>
+      <div class="seal-final-inner">
+        <p class="seal-final-eyebrow">Pré-venda aberta</p>
+        <h2 class="seal-final-title">Garanta seu iPhone<br>na pré-venda</h2>
+        <p class="seal-final-sub">Leva 2 minutos, sem consulta que te bloqueia.</p>
+        <a class="seal-final-btn" href="pre-venda.html">Quero entrar na pré-venda <span aria-hidden="true">→</span></a>
+      </div>`;
+    main.append(finalCta);
+
     const footer = document.createElement("footer");
     footer.className = "seal-footer";
     footer.innerHTML = `
@@ -627,11 +647,6 @@
           <p class="seal-footer-tagline">Pré-venda aberta — Locação de iPhone</p>
         </div>
 
-        <div class="seal-footer-cta">
-          <h2>Garanta seu iPhone<br>na pré-venda.</h2>
-          <p>Leva 2 minutos, sem consulta que te bloqueia.</p>
-        </div>
-
         <div class="seal-footer-cols">
           <nav class="seal-footer-col">
             <h3>Menu</h3>
@@ -645,20 +660,18 @@
             <a href="https://tiktok.com/" target="_blank" rel="noopener">TikTok</a>
             <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
           </nav>
-          <div class="seal-footer-col seal-footer-col--action">
-            <h3>Pré-venda</h3>
-            <a class="seal-footer-pill" href="pre-venda.html" target="_blank" rel="noopener">Quero entrar na pré-venda</a>
-          </div>
+          <nav class="seal-footer-col">
+            <h3>Legal</h3>
+            <a href="#">Política de privacidade</a>
+            <a href="#">Termos de uso</a>
+          </nav>
         </div>
 
         <div class="seal-footer-wordmark" aria-hidden="true">SEAL GO</div>
 
         <div class="seal-footer-base">
           <span>© 2026 Seal Store</span>
-          <span class="seal-footer-legal">
-            <a href="#">Política de privacidade</a>
-            <a href="#">Termos de uso</a>
-          </span>
+          <span>Uma operação da Seal Store</span>
         </div>
       </div>`;
     main.append(footer);
