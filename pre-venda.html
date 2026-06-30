@@ -6,16 +6,16 @@
   <title>Pré-venda — Seal Go</title>
   <meta name="description" content="Garanta seu iPhone na pré-venda da Seal Go. Leva 2 minutos, sem consulta que te bloqueia." />
   <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#000000" />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&f[]=dm-mono@400,500&display=swap" rel="stylesheet" />
   <style>
     :root {
       --blue: #3042e6;
-      --blue-dark: #1b2bb8;
-      --blue-soft: #e2e4f6;
-      --bg: #ffffff;
-      --ink: #0a0a0a;
-      --muted: rgba(0, 0, 0, 0.56);
+      --bg: #000000;
+      --ink: #ffffff;
+      --muted: rgba(255, 255, 255, 0.62);
+      --line: rgba(255, 255, 255, 0.12);
       --sans: "General Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
     }
@@ -39,14 +39,14 @@
       align-items: center;
       justify-content: space-between;
       padding: 18px 24px;
-      background: rgba(255, 255, 255, 0.82);
+      background: rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      border-bottom: 1px solid var(--line);
     }
 
     .pv-logo {
-      color: var(--blue);
+      color: #fff;
       font-size: 22px;
       font-weight: 600;
       letter-spacing: -0.04em;
@@ -57,29 +57,31 @@
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      color: var(--ink);
+      color: #fff;
       font-size: 15px;
       font-weight: 500;
       text-decoration: none;
-      opacity: 0.7;
+      opacity: 0.66;
       transition: opacity 160ms ease;
     }
 
     .pv-back:hover { opacity: 1; }
 
     .pv-main {
+      position: relative;
+      z-index: 1;
       width: min(820px, 100%);
       margin: 0 auto;
-      padding: 56px 24px 80px;
+      padding: 64px 24px 40px;
     }
 
     .pv-eyebrow {
       margin: 0 0 18px;
-      color: var(--blue);
+      color: #7d8cff;
       font-family: var(--mono);
       font-size: 13px;
       font-weight: 500;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       text-align: center;
     }
@@ -87,7 +89,7 @@
     .pv-title {
       margin: 0 auto;
       max-width: 680px;
-      color: var(--ink);
+      color: #fff;
       font-size: clamp(34px, 5vw, 56px);
       font-weight: 500;
       letter-spacing: -0.05em;
@@ -102,26 +104,6 @@
       font-size: clamp(17px, 2vw, 20px);
       line-height: 1.45;
       text-align: center;
-    }
-
-    .pv-form {
-      width: min(640px, 100%);
-      margin: 36px auto 0;
-    }
-
-    [data-youform-embed] {
-      display: block;
-      width: 100%;
-      min-height: 700px;
-      background: transparent;
-    }
-
-    [data-youform-embed] iframe {
-      display: block;
-      width: 100% !important;
-      border: 0 !important;
-      background: transparent !important;
-      color-scheme: light;
     }
 
     .pv-trust {
@@ -149,16 +131,62 @@
       background: var(--blue);
     }
 
-    .pv-footer {
-      padding: 28px 24px 40px;
-      color: var(--muted);
-      font-size: 14px;
+    .pv-form {
+      width: min(640px, 100%);
+      margin: 36px auto 0;
+    }
+
+    [data-youform-embed] {
+      display: block;
+      width: 100%;
+      min-height: 700px;
+      background: transparent;
+    }
+
+    [data-youform-embed] iframe {
+      display: block;
+      width: 100% !important;
+      border: 0 !important;
+      background: transparent !important;
+      color-scheme: normal;
+    }
+
+    /* SEAL GO wordmark (igual ao footer) */
+    .pv-wordmark {
+      margin: 40px 0 6px;
+      font-family: var(--sans);
+      font-size: clamp(58px, 16.4vw, 232px);
+      font-weight: 600;
+      letter-spacing: -0.05em;
+      line-height: 0.82;
       text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.08) 52%, rgba(255, 255, 255, 0) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      user-select: none;
+    }
+
+    .pv-base {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      width: min(1240px, 100%);
+      margin: 0 auto;
+      padding: 22px 32px 30px;
+      border-top: 1px solid var(--line);
+      color: rgba(255, 255, 255, 0.46);
+      font-size: 13px;
     }
 
     @media (max-width: 600px) {
-      .pv-main { padding: 36px 16px 60px; }
-      .pv-card { padding: 12px; border-radius: 20px; }
+      .pv-main { padding: 44px 16px 28px; }
+      .pv-base { padding: 20px 20px 26px; flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -189,7 +217,12 @@
     </div>
   </main>
 
-  <footer class="pv-footer">© 2026 Seal Store</footer>
+  <div class="pv-wordmark" aria-hidden="true">SEAL GO</div>
+
+  <div class="pv-base">
+    <span>© 2026 Seal Store</span>
+    <span>Uma operação da Seal Store</span>
+  </div>
 
   <script src="https://app.youform.com/embed.js"></script>
 </body>
