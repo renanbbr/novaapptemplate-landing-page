@@ -616,19 +616,23 @@
     finalCta.className = "seal-final-cta";
     finalCta.id = "pre-venda-cta";
     finalCta.innerHTML = `
-      <div class="seal-final-art" aria-hidden="true">
-        <img class="seal-final-phone seal-final-phone--1" src="./assets/iphone-17-pro-max.png" alt="" decoding="async">
-        <img class="seal-final-phone seal-final-phone--2" src="./assets/iphone-12-pro.webp" alt="" decoding="async">
-        <img class="seal-final-phone seal-final-phone--3" src="./assets/iphone-17-pro-max-orange.png" alt="" decoding="async">
-        <img class="seal-final-phone seal-final-phone--4" src="./assets/iphone-11.png" alt="" decoding="async">
-        <img class="seal-final-phone seal-final-phone--5" src="./assets/iphone-15.png" alt="" decoding="async">
-        <img class="seal-final-phone seal-final-phone--6" src="./assets/iphone-17.png" alt="" decoding="async">
-      </div>
-      <div class="seal-final-inner">
-        <p class="seal-final-eyebrow">Pré-venda aberta</p>
-        <h2 class="seal-final-title">Garanta seu iPhone<br>na pré-venda</h2>
-        <p class="seal-final-sub">Leva 2 minutos, sem consulta que te bloqueia.</p>
-        <a class="seal-final-btn" href="pre-venda.html">Quero entrar na pré-venda <span aria-hidden="true">→</span></a>
+      <div class="seal-final-grid">
+        <div class="seal-final-inner">
+          <p class="seal-final-eyebrow">Pré-venda aberta</p>
+          <h2 class="seal-final-title">Garanta seu iPhone na pré-venda</h2>
+          <p class="seal-final-sub">Leva apenas 2 minutos. A gente te chama no WhatsApp com os próximos passos.</p>
+          <a class="seal-final-btn" href="pre-venda.html">Quero entrar na pré-venda <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="seal-final-media">
+          <div class="seal-final-art" aria-hidden="true">
+            <img class="seal-final-phone seal-final-phone--1" src="./assets/iphone-17-pro-max.png" alt="" decoding="async">
+            <img class="seal-final-phone seal-final-phone--2" src="./assets/iphone-12-pro.webp" alt="" decoding="async">
+            <img class="seal-final-phone seal-final-phone--3" src="./assets/iphone-17-pro-max-orange.png" alt="" decoding="async">
+            <img class="seal-final-phone seal-final-phone--4" src="./assets/iphone-11.png" alt="" decoding="async">
+            <img class="seal-final-phone seal-final-phone--5" src="./assets/iphone-15.png" alt="" decoding="async">
+            <img class="seal-final-phone seal-final-phone--6" src="./assets/iphone-17.png" alt="" decoding="async">
+          </div>
+        </div>
       </div>`;
 
     const cover = document.createElement("img");
@@ -637,7 +641,7 @@
     cover.setAttribute("aria-hidden", "true");
     cover.addEventListener("error", () => cover.remove());
     cover.src = "./assets/cta-final.jpg";
-    finalCta.querySelector(".seal-final-art").after(cover);
+    finalCta.querySelector(".seal-final-media").append(cover);
 
     main.append(finalCta);
 
