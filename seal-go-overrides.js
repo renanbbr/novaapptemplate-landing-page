@@ -308,19 +308,35 @@
     const faqs = [
       [
         "Vocês consultam o Serasa/SPC?",
-        "A aprovação não trava por consulta a bureau. O que pesa é seu comportamento daqui pra frente.",
+        "A aprovação não trava por consulta a bureau. O que pesa é seu comportamento de pagamento daqui pra frente, não sua nota.",
       ],
       [
-        "O iPhone é meu no final?",
-        "Sim. No fim do contrato, você compra o aparelho por R$2 e ele passa a ser seu. Você também pode renovar ou trocar.",
+        "Preciso dar entrada?",
+        "Sim, uma entrada facilitada conforme seu perfil. É ela que destrava a aprovação e deixa a parcela leve.",
       ],
       [
         "Preciso de fiador?",
-        "Não. Você não precisa de fiador. A proposta é montada conforme o modelo, a entrada e o prazo escolhido.",
+        "Sim. A locação é garantida por um fiador, que assina o contrato junto com você. O especialista te explica certinho como funciona.",
+      ],
+      [
+        "O iPhone é meu?",
+        "Durante o contrato é da Seal e você tem a posse pra usar. No fim, você compra por R$2 e fica com ele — ou renova, ou troca.",
+      ],
+      [
+        "Posso trocar por um modelo mais novo?",
+        "Pode, a qualquer momento, com uma taxa administrativa e ajuste na parcela, conforme disponibilidade.",
       ],
       [
         "E se quebrar?",
-        "Você conta com seguro e suporte. Se o iPhone precisar de reparo, oferecemos um aparelho reserva conforme as condições do contrato.",
+        "Desgaste natural é por nossa conta. Dano por uso você paga só o custo da peça, sem mão de obra.",
+      ],
+      [
+        "Como eu pago?",
+        "Boleto mensal. Sem precisar de cartão de crédito.",
+      ],
+      [
+        "É novo ou seminovo?",
+        "Os dois. Você escolhe o modelo; todos vão configurados e prontos pra usar.",
       ],
     ];
 
