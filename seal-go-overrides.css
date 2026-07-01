@@ -2218,3 +2218,31 @@ section[data-framer-name="section-benefits"] {
     align-items: flex-start;
   }
 }
+
+/* ===== Navbar escura sobre a section preta (section-features) ===== */
+header {
+  transition: background-color 260ms ease;
+}
+
+header.seal-nav-dark,
+header.seal-nav-dark [data-framer-name="bg"] {
+  background-color: #000 !important;
+  transition: background-color 260ms ease;
+}
+
+header.seal-nav-dark .seal-header-logo {
+  filter: brightness(0) invert(1);
+  transition: filter 200ms ease;
+}
+
+header.seal-nav-dark a,
+header.seal-nav-dark p,
+header.seal-nav-dark span {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  transition: color 200ms ease;
+}
+
+header.seal-nav-dark [data-framer-name="line"] {
+  background-color: #fff !important;
+}

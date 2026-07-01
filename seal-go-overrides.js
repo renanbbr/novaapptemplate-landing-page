@@ -774,6 +774,31 @@
     }
   };
 
+  const setupNavTheme = () => {
+    if (window.__sealNavThemeDone) return;
+    const darkSection = document.querySelector('section[data-framer-name="section-features"]');
+    if (!darkSection) return;
+    window.__sealNavThemeDone = true;
+
+    const headers = [...document.querySelectorAll("header")];
+    let ticking = false;
+    const apply = () => {
+      ticking = false;
+      const navH = (headers.find((h) => h.offsetHeight) || {}).offsetHeight || 68;
+      const r = darkSection.getBoundingClientRect();
+      const isDark = r.top <= navH && r.bottom >= navH;
+      for (const header of headers) header.classList.toggle("seal-nav-dark", isDark);
+    };
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(apply);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    apply();
+  };
+
   const updateBrandIdentity = () => {
     for (const link of document.querySelectorAll('header a[aria-label="Go back home"]')) {
       if (link.querySelector(".seal-header-logo")) continue;
@@ -788,6 +813,7 @@
 
   const updateText = () => {
     updateBrandIdentity();
+    setupNavTheme();
     updateHero();
     buildMechanismCarousel();
     buildPricing();
