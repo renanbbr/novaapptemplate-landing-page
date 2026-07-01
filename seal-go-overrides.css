@@ -838,6 +838,15 @@ section[data-framer-name="section-benefits"] {
 }
 
 @media (max-width: 809px) {
+  header a[data-framer-name="Sm"][href="pre-venda.html"] {
+    background: var(--token-0d764deb-6f85-48af-b705-95c8050e4693, #3042e6) !important;
+    color: #fff !important;
+  }
+
+  header a[data-framer-name="Sm"][href="pre-venda.html"] * {
+    color: #fff !important;
+  }
+
   section[data-framer-name="section-intro"] {
     padding-bottom: 72px !important;
   }
