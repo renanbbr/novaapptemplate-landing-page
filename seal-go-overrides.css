@@ -582,7 +582,7 @@ section[data-framer-name="section-benefits"] {
   top: 50%;
   left: 50%;
   display: block;
-  width: clamp(108px, 13.5vw, 168px);
+  width: clamp(96px, 12vw, 145px);
   height: auto;
   pointer-events: none;
   transform: translate(-50%, -50%);
@@ -1355,7 +1355,7 @@ section[data-framer-name="section-benefits"] {
 
 .seal-scr-brand-logo {
   display: block;
-  width: 58px;
+  width: 44px;
   height: auto;
   object-fit: contain;
 }
@@ -2177,7 +2177,7 @@ section[data-framer-name="section-benefits"] {
 
 .seal-footer-wordmark img {
   display: block;
-  width: min(82vw, 980px);
+  width: min(54vw, 720px);
   height: auto;
   margin-bottom: -5%;
   opacity: 0.16;
@@ -2187,10 +2187,10 @@ section[data-framer-name="section-benefits"] {
 
 .seal-footer-base {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
   flex-wrap: wrap;
-  gap: 12px 24px;
+  gap: 18px;
   padding: 24px 0 30px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   color: rgba(0, 0, 0, 0.46);
@@ -2211,6 +2211,10 @@ section[data-framer-name="section-benefits"] {
 
   .seal-footer-wordmark {
     font-size: 19vw;
+  }
+
+  .seal-footer-wordmark img {
+    width: 74vw;
   }
 
   .seal-footer-base {
