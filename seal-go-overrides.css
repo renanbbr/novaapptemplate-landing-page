@@ -2199,6 +2199,15 @@ section[data-framer-name="section-benefits"] {
 }
 
 @media (max-width: 809px) {
+  /* Mobile: landing page sem navbar para priorizar o conteudo. */
+  header:has([data-framer-name="Phone"]) {
+    display: none !important;
+  }
+
+  section[data-framer-name="hero"] [data-framer-name="max-width"] {
+    padding-top: 48px !important;
+  }
+
   .seal-footer-inner {
     padding: 52px 20px 0;
   }
