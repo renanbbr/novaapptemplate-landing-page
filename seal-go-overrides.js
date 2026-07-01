@@ -403,7 +403,7 @@
       title: "Entre na pré-venda",
       text: "Preencha o formulário. Leva 2 minutos, sem compromisso.",
       screen: `
-        <div class="seal-scr-bar"><span>9:41</span><span class="seal-scr-brand">SealGo</span></div>
+        <div class="seal-scr-bar"><span>9:41</span><img class="seal-scr-brand-logo" src="./assets/brand/seal-go-black.png" alt="Seal Go"></div>
         <div class="seal-scr-body">
           <p class="seal-scr-ey">Pré-venda</p>
           <h4 class="seal-scr-title">Garanta seu iPhone</h4>
@@ -419,7 +419,7 @@
       title: "Análise de crédito",
       text: "Aqui a gente faz a análise do seu cadastro — rápida e sem complicação.",
       screen: `
-        <div class="seal-scr-bar"><span>9:41</span><span class="seal-scr-brand">SealGo</span></div>
+        <div class="seal-scr-bar"><span>9:41</span><img class="seal-scr-brand-logo" src="./assets/brand/seal-go-black.png" alt="Seal Go"></div>
         <div class="seal-scr-body">
           <p class="seal-scr-ey">Análise de crédito</p>
           <h4 class="seal-scr-title">Analisando seu cadastro</h4>
@@ -461,7 +461,7 @@
       title: "Contrato 100% digital",
       text: "Gostou da proposta? Você assina online, com tudo por escrito e sem burocracia.",
       screen: `
-        <div class="seal-scr-bar"><span>9:41</span><span class="seal-scr-brand">SealGo</span></div>
+        <div class="seal-scr-bar"><span>9:41</span><img class="seal-scr-brand-logo" src="./assets/brand/seal-go-black.png" alt="Seal Go"></div>
         <div class="seal-scr-body">
           <div class="seal-scr-eyrow"><p class="seal-scr-ey">Contrato</p><span class="seal-tag">100% digital</span></div>
           <h4 class="seal-scr-title">Tudo por escrito</h4>
@@ -483,7 +483,7 @@
       title: "O seu iPhone na mão",
       text: "É só agendar a entrega ou o envio do seu aparelho. Pronto pra usar.",
       screen: `
-        <div class="seal-scr-bar"><span>9:41</span><span class="seal-scr-brand">SealGo</span></div>
+        <div class="seal-scr-bar"><span>9:41</span><img class="seal-scr-brand-logo" src="./assets/brand/seal-go-black.png" alt="Seal Go"></div>
         <div class="seal-scr-body">
           <p class="seal-scr-ey">Entrega</p>
           <h4 class="seal-scr-title">Seu iPhone está a caminho</h4>
@@ -670,7 +670,9 @@
           </nav>
         </div>
 
-        <div class="seal-footer-wordmark" aria-hidden="true">SEAL GO</div>
+        <div class="seal-footer-wordmark">
+          <img src="./assets/brand/seal-go-black.png" alt="Seal Go">
+        </div>
 
         <div class="seal-footer-base">
           <span>© 2026 Seal Store</span>
@@ -692,9 +694,10 @@
     for (const phone of section.querySelectorAll('[data-framer-name="phone-screens"]')) {
       if (phone.dataset.sealBalloons === "true") continue;
 
-      const screenBrand = document.createElement("div");
+      const screenBrand = document.createElement("img");
       screenBrand.className = "seal-intro-screen-brand";
-      screenBrand.textContent = "SealGo";
+      screenBrand.src = "./assets/brand/seal-go-black.png";
+      screenBrand.alt = "Seal Go";
 
       const balloons = document.createElement("div");
       balloons.className = "seal-intro-balloons";
@@ -771,7 +774,20 @@
     }
   };
 
+  const updateBrandIdentity = () => {
+    for (const link of document.querySelectorAll('header a[aria-label="Go back home"]')) {
+      if (link.querySelector(".seal-header-logo")) continue;
+      const logo = document.createElement("img");
+      logo.className = "seal-header-logo";
+      logo.src = "./assets/brand/seal-go-black.png";
+      logo.alt = "Seal Go";
+      link.replaceChildren(logo);
+      link.setAttribute("aria-label", "Seal Go — início");
+    }
+  };
+
   const updateText = () => {
+    updateBrandIdentity();
     updateHero();
     buildMechanismCarousel();
     buildPricing();

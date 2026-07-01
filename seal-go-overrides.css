@@ -581,15 +581,19 @@ section[data-framer-name="section-benefits"] {
   z-index: 6;
   top: 50%;
   left: 50%;
-  color: var(--token-0d764deb-6f85-48af-b705-95c8050e4693, #3042e6);
-  font-family: "General Sans", "General Sans Placeholder", sans-serif;
-  font-size: clamp(36px, 4.4vw, 54px);
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  line-height: 1;
+  display: block;
+  width: clamp(150px, 19vw, 230px);
+  height: auto;
   pointer-events: none;
   transform: translate(-50%, -50%);
-  white-space: nowrap;
+}
+
+.seal-header-logo {
+  display: block;
+  width: 112px;
+  height: auto;
+  max-height: 36px;
+  object-fit: contain;
 }
 
 .seal-intro-heading {
@@ -1349,12 +1353,11 @@ section[data-framer-name="section-benefits"] {
   font-size: 12px;
 }
 
-.seal-scr-brand {
-  color: var(--token-0d764deb-6f85-48af-b705-95c8050e4693, #3042e6);
-  font-family: "General Sans", "General Sans Placeholder", sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: -0.03em;
+.seal-scr-brand-logo {
+  display: block;
+  width: 58px;
+  height: auto;
+  object-fit: contain;
 }
 
 .seal-scr-body {
@@ -2164,20 +2167,18 @@ section[data-framer-name="section-benefits"] {
 }
 
 .seal-footer-wordmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 48px 0 6px;
-  font-family: "General Sans", "General Sans Placeholder", sans-serif;
-  font-size: clamp(58px, 16.4vw, 232px);
-  font-weight: 600;
-  letter-spacing: -0.05em;
-  line-height: 0.82;
-  text-align: center;
-  white-space: nowrap;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.17) 0%, rgba(0, 0, 0, 0.07) 52%, rgba(0, 0, 0, 0) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
   user-select: none;
+}
+
+.seal-footer-wordmark img {
+  display: block;
+  width: min(82vw, 980px);
+  height: auto;
+  opacity: 0.12;
 }
 
 .seal-footer-base {

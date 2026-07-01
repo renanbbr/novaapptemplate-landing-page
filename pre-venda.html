@@ -7,6 +7,8 @@
   <meta name="description" content="Garanta seu iPhone na pré-venda da Seal Go. Leva 2 minutos, sem consulta que te bloqueia." />
   <meta name="robots" content="noindex" />
   <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="./assets/brand/seal-mark-white.png" />
+  <link rel="apple-touch-icon" href="./assets/brand/seal-mark-black.png" />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&f[]=dm-mono@400,500&display=swap" rel="stylesheet" />
   <style>
@@ -46,11 +48,15 @@
     }
 
     .pv-logo {
-      color: #fff;
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: -0.04em;
+      display: block;
+      width: 112px;
       text-decoration: none;
+    }
+
+    .pv-logo img {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
     .pv-back {
@@ -153,21 +159,19 @@
 
     /* SEAL GO wordmark (igual ao footer) */
     .pv-wordmark {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin: 40px 0 6px;
-      font-family: var(--sans);
-      font-size: clamp(58px, 16.4vw, 232px);
-      font-weight: 600;
-      letter-spacing: -0.05em;
-      line-height: 0.82;
-      text-align: center;
-      white-space: nowrap;
       overflow: hidden;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.08) 52%, rgba(255, 255, 255, 0) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      -webkit-text-fill-color: transparent;
       user-select: none;
+    }
+
+    .pv-wordmark img {
+      display: block;
+      width: min(82vw, 980px);
+      height: auto;
+      opacity: 0.16;
     }
 
     .pv-base {
@@ -199,7 +203,9 @@
 </head>
 <body>
   <header class="pv-header">
-    <a class="pv-logo" href="./index.html">SealGo</a>
+    <a class="pv-logo" href="./index.html" aria-label="Seal Go — página inicial">
+      <img src="./assets/brand/seal-go-white.png" alt="Seal Go" />
+    </a>
     <a class="pv-back" href="./index.html" aria-label="Voltar para a página inicial">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -224,7 +230,9 @@
     </div>
   </main>
 
-  <div class="pv-wordmark" aria-hidden="true">SEAL GO</div>
+  <div class="pv-wordmark">
+    <img src="./assets/brand/seal-go-white.png" alt="Seal Go" />
+  </div>
 
   <div class="pv-base">
     <span>© 2026 Seal Store</span>
