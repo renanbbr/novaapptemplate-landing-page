@@ -116,9 +116,19 @@ section[data-framer-name="hero"] .seal-hero-description-variant {
 }
 
 section[data-framer-name="hero"] .seal-approved-value {
-  align-items: flex-start !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
   justify-content: flex-start !important;
+  gap: 10px;
   min-height: 25px;
+}
+
+section[data-framer-name="hero"] .seal-approved-logo {
+  display: block;
+  width: auto;
+  height: 15px;
+  object-fit: contain;
 }
 
 section[data-framer-name="hero"] .seal-proposal-card {
@@ -582,7 +592,7 @@ section[data-framer-name="section-benefits"] {
   top: 50%;
   left: 50%;
   display: block;
-  width: clamp(150px, 19vw, 230px);
+  width: clamp(108px, 13.5vw, 168px);
   height: auto;
   pointer-events: none;
   transform: translate(-50%, -50%);
@@ -590,9 +600,9 @@ section[data-framer-name="section-benefits"] {
 
 .seal-header-logo {
   display: block;
-  width: 112px;
+  width: 88px;
   height: auto;
-  max-height: 36px;
+  max-height: 26px;
   object-fit: contain;
 }
 
