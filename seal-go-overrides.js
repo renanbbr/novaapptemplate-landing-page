@@ -749,11 +749,7 @@
       const badge = document.createElement("span");
       badge.className = "seal-approved-badge";
       badge.textContent = "Aprovado";
-      const approvedLogo = document.createElement("img");
-      approvedLogo.className = "seal-approved-logo";
-      approvedLogo.src = "./assets/brand/seal-go-black.png";
-      approvedLogo.alt = "Seal Go";
-      start.replaceChildren(badge, approvedLogo);
+      start.replaceChildren(badge);
       start.classList.add("seal-approved-value");
     }
 

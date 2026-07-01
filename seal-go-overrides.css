@@ -116,19 +116,9 @@ section[data-framer-name="hero"] .seal-hero-description-variant {
 }
 
 section[data-framer-name="hero"] .seal-approved-value {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
+  align-items: flex-start !important;
   justify-content: flex-start !important;
-  gap: 10px;
   min-height: 25px;
-}
-
-section[data-framer-name="hero"] .seal-approved-logo {
-  display: block;
-  width: auto;
-  height: 15px;
-  object-fit: contain;
 }
 
 section[data-framer-name="hero"] .seal-proposal-card {
