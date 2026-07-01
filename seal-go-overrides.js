@@ -12,7 +12,7 @@
     ["12-24 meses", "12 - 18 - 24 meses"],
     [
       "Sem consulta ao Serasa/SPC · Entrada facilitada · Vire dono por R$2 no fim · Boleto mensal, sem cartão",
-      "Sem consulta ao SPC/Serasa · Entrada facilitada · Vire dono por R$2 no fim do contrato · Seguro incluso · Boleto mensal, sem cartão"
+      "Sem consulta ao SPC/Serasa · Entrada facilitada · Boleto mensal, sem cartão"
     ],
     ["Aprovação sem o Serasa travar", "Aprovamos negativados"],
     [
@@ -81,8 +81,6 @@
   const mechanisms = [
     "Sem consulta ao SPC/Serasa",
     "Entrada facilitada",
-    "Vire dono por R$2 no fim do contrato",
-    "Seguro incluso",
     "Boleto mensal, sem cartão",
   ];
 
