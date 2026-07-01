@@ -640,7 +640,7 @@
     cover.alt = "";
     cover.setAttribute("aria-hidden", "true");
     cover.addEventListener("error", () => cover.remove());
-    cover.src = "./assets/cta-final.jpg";
+    cover.src = "./assets/ctafinal.jpeg";
     finalCta.querySelector(".seal-final-media").append(cover);
 
     main.append(finalCta);
