@@ -28,8 +28,11 @@
       "iPhone novo ou seminovo, configurado, com acessórios e capa inclusos.",
       "iPhone novo ou seminovo, configurado, com todos os acessórios inclusos."
     ],
-    ["Conserto sem susto", "iPhone já com seguro"],
-    ["Desgaste natural é por nossa conta. Dano por uso? Só o custo da peça.", "Proteção e segurança."],
+    ["Conserto sem susto", "Seal Guard te cobre"],
+    [
+      "Desgaste natural é por nossa conta. Dano por uso? Só o custo da peça.",
+      "Em caso de furto ou roubo, o Seal Guard cuida da reposição do seu aparelho."
+    ],
     [
       "Garanta seu iPhone na pré-venda. Leva 1 minuto, sem consulta que te bloqueia.",
       "Garanta seu iPhone na pré-venda. Leva 2 minutos, sem consulta que te bloqueia.",
@@ -428,7 +431,7 @@
             <li class="ok"><i>✓</i> Dados validados</li>
             <li class="ok"><i>✓</i> Sem consulta ao SPC/Serasa</li>
           </ul>
-          <div class="seal-result"><span>Resultado</span><strong>Pré-aprovado</strong></div>
+          <div class="seal-result"><span>Resultado</span><strong>Aprovado</strong></div>
         </div>`,
     },
     {
@@ -618,7 +621,6 @@
     finalCta.innerHTML = `
       <div class="seal-final-grid">
         <div class="seal-final-inner">
-          <p class="seal-final-eyebrow">Pré-venda aberta</p>
           <h2 class="seal-final-title">Garanta seu iPhone na pré-venda</h2>
           <p class="seal-final-sub">Leva apenas 2 minutos. A gente te chama no WhatsApp com os próximos passos.</p>
           <a class="seal-final-btn" href="pre-venda.html">Quero entrar na pré-venda <span aria-hidden="true">→</span></a>
@@ -639,8 +641,9 @@
     cover.className = "seal-final-cover";
     cover.alt = "";
     cover.setAttribute("aria-hidden", "true");
+    cover.addEventListener("load", () => finalCta.querySelector(".seal-final-art")?.remove());
     cover.addEventListener("error", () => cover.remove());
-    cover.src = "./assets/ctafinal.jpeg";
+    cover.src = "./assets/ctafinal-transparent.png";
     finalCta.querySelector(".seal-final-media").append(cover);
 
     main.append(finalCta);
@@ -649,17 +652,6 @@
     footer.className = "seal-footer";
     footer.innerHTML = `
       <div class="seal-footer-inner">
-        <div class="seal-footer-head">
-          <span class="seal-footer-mark" aria-hidden="true">
-            <svg viewBox="0 0 40 40" width="40" height="40" fill="none">
-              <circle cx="20" cy="20" r="18.5" stroke="currentColor" stroke-width="1.4"/>
-              <path d="M12 24c4-10 12-10 16 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-              <circle cx="20" cy="16" r="2.4" fill="currentColor"/>
-            </svg>
-          </span>
-          <p class="seal-footer-tagline">Pré-venda aberta — Locação de iPhone</p>
-        </div>
-
         <div class="seal-footer-cols">
           <nav class="seal-footer-col">
             <h3>Menu</h3>
@@ -714,16 +706,16 @@
           <p>Sua nota no Serasa não interfere para nós. O que é importa é o nosso acordo.</p>
         </article>
         <article class="seal-intro-balloon seal-intro-benefit seal-intro-benefit--two">
-          <h3>Parcela fixa, sem pegadinha</h3>
-          <p>Mensalidade transparente, sem IOF nem taxa de cadastro inflando o custo.</p>
+          <h3>Sem precisar de cartão de crédito</h3>
+          <p>Você garante seu iPhone sem depender de limite no cartão.</p>
         </article>
         <article class="seal-intro-balloon seal-intro-benefit seal-intro-benefit--three">
           <h3>Entrada que cabe no seu momento</h3>
           <p>Garanta o seu iPhone, com uma entrada facilitada e que caiba no teu seu orçamento</p>
         </article>
         <article class="seal-intro-balloon seal-intro-benefit seal-intro-benefit--four">
-          <h3>Use agora, vire dono depois</h3>
-          <p>No fim do contrato você compra o aparelho por R$2 e ele é seu. Ou renova, ou troca.</p>
+          <h3>No fim, a escolha é sua</h3>
+          <p>Terminou o contrato? Você decide: fica com o aparelho por R$2, renova ou troca por um novo.</p>
         </article>
       `;
       phone.append(screenBrand, balloons);
