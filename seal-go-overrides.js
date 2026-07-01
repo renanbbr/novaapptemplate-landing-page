@@ -94,9 +94,9 @@
 
   const modelBenefits = [
     "Capa, película e carregador",
-    "Seguro contra furto e roubo",
+    "Seal Guard - Cobertura contra furto e roubo",
     "Aparelho reserva",
-    "Dono por apenas R$2 no fim",
+    "Opção de compra por apenas R$2 no fim",
   ];
 
   const modelSet = (models, hidden = false) => {
